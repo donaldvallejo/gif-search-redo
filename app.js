@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     term = ""
     if (req.query.term) {
         term = req.query.term
-    }
+    }   
     // Tenor.search.Query("SEARCH KEYWORD HERE", "LIMIT HERE")
     Tenor.Search.Query(term, "10")
         .then(response => {
@@ -44,7 +44,7 @@ app.get('/greetings/:name', (req, res) => {
     res.render('greetings', { name });
     })
 
-// Start Server
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
     console.log('Gif Search listening on port localhost:3000!');
-});
+})
